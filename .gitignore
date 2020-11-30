@@ -1,0 +1,12 @@
+# Directories to avoid
+node_modules/*
+tools/*
+etc/*
+
+# Filetypes to avoid
+.~lock.*
+*.old
+*.xls
+*.json
+*.doc
+*.rtf

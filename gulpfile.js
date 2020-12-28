@@ -1,4 +1,3 @@
-// TODO: Inject only injects into index.html, not faq
 // TODO: Rewrite gulpfile to fit 4.0 syntax (named functions, take advantage of series/parallel)
 
 var gulp = require('gulp');
@@ -18,14 +17,16 @@ var paths = {
 	srcJS: 'src/**/*.js',
 
 	tmp: 'tmp',
-	tmpIndex: 'tmp/index.html',
+	tmpHTML: 'tmp/**/*.html',
 	tmpCSS: 'tmp/**/*.css',
 	tmpJS: 'tmp/**/*.js',
 
 	dist: 'dist',
-	distIndex: 'dist/index.html',
+	distHTML: 'dist/**/*.html',
 	distCSS: 'dist/**/*.css',
-	distJS: 'dist/**/*.js'
+	distJS: 'dist/**/*.js',
+	
+	srcJSON: 'tools/*.json'
 };
 
 /**
@@ -40,6 +41,13 @@ gulp.task('css', function () {
 gulp.task('js', function () {
   return gulp.src(paths.srcJS).pipe(gulp.dest(paths.tmp));
 });
+gulp.task('json', function () {
+  return gulp.src(paths.srcJSON).pipe(gulp.dest(paths.tmp));
+});
+
+gulp.task('clean_json', async function () {
+  del([paths.srcJSON]);
+});
 
 gulp.task('compile_json', function (cb) {
 	exec('python tools/db_compile.py', function (err, stdout, stderr) {
@@ -49,12 +57,12 @@ gulp.task('compile_json', function (cb) {
 	});
 })
 
-gulp.task('copy', gulp.series('html', 'css', 'js', 'compile_json'));
+gulp.task('copy', gulp.series('html', 'css', 'js', 'compile_json', 'json', 'clean_json'));
 
 gulp.task('inject', gulp.series('copy', function () {
   var css = gulp.src(paths.tmpCSS);
   var js = gulp.src(paths.tmpJS);
-  return gulp.src(paths.tmpIndex)
+  return gulp.src(paths.tmpHTML)
     .pipe(inject( css, { relative:true } ))
     .pipe(inject( js, { relative:true } ))
     .pipe(gulp.dest(paths.tmp));
@@ -99,16 +107,19 @@ gulp.task('js:dist', function () {
     .pipe(terser())
     .pipe(gulp.dest(paths.dist));
 });
-gulp.task('copy:dist', gulp.series('html:dist', 'css:dist', 'js:dist'));
+gulp.task('json:dist', function () {
+  return gulp.src(paths.srcJSON)
+    .pipe(gulp.dest(paths.dist));
+});
+gulp.task('copy:dist', gulp.series('html:dist', 'css:dist', 'js:dist', 'compile_json', 'json:dist', 'clean_json'));
 gulp.task('inject:dist', gulp.series('copy:dist', function () {
   var css = gulp.src(paths.distCSS);
   var js = gulp.src(paths.distJS);
-  return gulp.src(paths.distIndex)
+  return gulp.src(paths.distHTML)
     .pipe(inject( css, { relative:true } ))
     .pipe(inject( js, { relative:true } ))
     .pipe(gulp.dest(paths.dist));
 }));
-gulp.task('build', gulp.series('inject:dist'));
 gulp.task('build', gulp.series('inject:dist'));
 /**
  * PRODUCTION END

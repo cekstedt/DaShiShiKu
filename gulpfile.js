@@ -120,7 +120,20 @@ gulp.task('inject:dist', gulp.series('copy:dist', function () {
     .pipe(inject( js, { relative:true } ))
     .pipe(gulp.dest(paths.dist));
 }));
-gulp.task('build', gulp.series('inject:dist'));
+
+gulp.task('serve:dist', gulp.series('inject:dist', function () {
+  return gulp.src(paths.dist)
+    .pipe(webserver({
+      port: 3000,
+			livereload: true
+    }));
+}));
+
+gulp.task('watch:dist', gulp.series('serve:dist', function () {
+	gulp.watch(paths.src, gulp.series('inject:dist'));
+}));
+
+gulp.task('build', gulp.series('watch:dist'));
 /**
  * PRODUCTION END
  */

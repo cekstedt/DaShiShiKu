@@ -1,7 +1,7 @@
 class Verse {
 	/*
 		Verse object will contain one randomly selected Template and enough 
-		randomly selected Words to fill  it.
+		randomly selected Words to fill it.
 	*/
 	
 	dictionary;
@@ -93,5 +93,13 @@ class Verse {
 		}
 		ret.push(this.separators[this.separators.length - 1]);
 		return ret.join("");
+	}
+	
+	cash_phrases_total() {
+		var total = 0;
+		for (var word of this.words) {
+			total += word.cash_phrase;
+		}
+		return total;
 	}
 }

@@ -12,6 +12,10 @@ pre{
     font-size: 1em;
 }
 
+#content{
+       text-align:center
+}
+
 #bottom { 
 	position:absolute;                  
 	bottom:0;                          

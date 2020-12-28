@@ -10,10 +10,16 @@ class Haiku {
 	constructor(dictionary, template_book) {
 		this.dictionary = dictionary;
 		this.template_book = template_book;
-		for (var syllables of [5, 7, 5]) {
-			this.verses.push(new Verse(this.dictionary, this.template_book, syllables));
+		while (true) {
+			for (var syllables of [5, 7, 5]) {
+				this.verses.push(new Verse(this.dictionary, this.template_book, syllables));
+			}
+			if (this.cash_phrases_total()) {
+				break;
+			} else {
+				verses = [];
+			}
 		}
-		
 	}
 	
 	to_str() {
@@ -24,5 +30,13 @@ class Haiku {
 		}
 		
 		return str;
+	}
+	
+	cash_phrases_total() {
+		var total = 0;
+		for (var verse of this.verses) {
+			total += verse.cash_phrases_total();
+		}
+		return total;
 	}
 }

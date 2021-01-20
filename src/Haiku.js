@@ -17,7 +17,7 @@ class Haiku {
 			if (this.cash_phrases_total()) {
 				break;
 			} else {
-				verses = [];
+				this.verses = [];
 			}
 		}
 	}

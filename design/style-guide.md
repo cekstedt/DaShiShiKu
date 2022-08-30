@@ -1,5 +1,7 @@
 # Style Guide
 
+[Nav Bar](https://codepen.io/alvarotrigo/pen/oNGzoYd)
+
 ## Colors
 
 ### Primary
@@ -21,3 +23,10 @@ Dark Sea: #54BAB9
 - Family: [Jim Nightshade](https://fonts.google.com/specimen/Jim+Nightshade)
 - Weights: 400
 
+## Project Milestones
+
+- Set up social sharing buttons
+- Centralize contact points (twitter, email)
+- Set up API backend
+- Set up analytics
+- Twitter bot (with queue)

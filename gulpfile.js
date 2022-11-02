@@ -1,16 +1,16 @@
 // TODO: Rewrite gulpfile to fit 4.0 syntax (named functions, take advantage of series/parallel)
 
-var gulp = require("gulp");
-var concat = require("gulp-concat");
-var terser = require("gulp-terser");
-var exec = require("child_process").exec;
-var del = require("del");
-var inject = require("gulp-inject");
-var webserver = require("gulp-webserver");
-var htmlclean = require("gulp-htmlclean");
-var cleanCSS = require("gulp-clean-css");
+const gulp = require("gulp");
+const concat = require("gulp-concat");
+const terser = require("gulp-terser");
+const exec = require("child_process").exec;
+const del = require("del");
+const inject = require("gulp-inject");
+const webserver = require("gulp-webserver");
+const htmlclean = require("gulp-htmlclean");
+const cleanCSS = require("gulp-clean-css");
 
-var paths = {
+const paths = {
   src: "src/**/*",
   srcHTML: "src/**/*.html",
   srcCSS: "src/**/*.css",

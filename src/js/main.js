@@ -3,6 +3,7 @@ let dictionary;
 let template_book;
 let haiku_book;
 
+// TODO: Update with fetch api. 
 //import json data.
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {

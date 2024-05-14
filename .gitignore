@@ -2,11 +2,14 @@
 node_modules/*
 tools/*
 etc/*
+dist/*
 
 # Filetypes to avoid
 .~lock.*
 *.old
 *.xls
-*.json
 *.doc
 *.rtf
+
+# Files to avoid
+package-lock.json

@@ -1,0 +1,30 @@
+{
+  "name": "dashishiku",
+  "version": "3.0.0",
+  "description": "This is the source code for DaShiShiKu.com, a haiku generator based on the podcast [Cashing In With T.J. Miller](https://podcasts.apple.com/us/podcast/cashing-in-with-t-j-miller/id512774441)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cekstedt/DaShiShiKu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cekstedt/DaShiShiKu/issues"
+  },
+  "homepage": "https://github.com/cekstedt/DaShiShiKu#readme",
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": "latest"
+    }
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}

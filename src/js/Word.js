@@ -1,4 +1,4 @@
-class Word {
+export default class Word {
   /*
 		Word object will contain all column titles as attributes,
 		in addition to the following:
@@ -12,7 +12,7 @@ class Word {
 	*/
 
   constructor(data, titles) {
-    for (const i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       this[titles[i]] = data[i];
     }
     this.used = 0;
@@ -35,7 +35,7 @@ class Word {
         this.link +
         '" title="' +
         this.definition +
-        '" target="_blank">' +
+        '" target="_blank" rel="noopener noreferrer">' +
         temp_phrase +
         "</a>"
       );

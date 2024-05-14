@@ -1,4 +1,4 @@
-class Util {
+export default class Util {
   /* A static class that provides some useful functions */
 
   static choose(arr) {

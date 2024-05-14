@@ -1,4 +1,7 @@
-class Dictionary {
+import Word from "./Word.js";
+import Util from "./Util.js";
+
+export default class Dictionary {
   /*
 		This class takes a 2d list of phrases (first row is titles)
 		and converts it to a dictionary of Word objects.

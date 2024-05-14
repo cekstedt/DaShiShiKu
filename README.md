@@ -8,4 +8,4 @@ In Progess...
 
 ## License
 
-[MIT](LICENSE) © Christopher Ekstedt, 2022.
+[MIT](LICENSE) © Christopher Ekstedt, 2024.

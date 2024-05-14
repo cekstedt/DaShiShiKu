@@ -1,4 +1,6 @@
-class Haiku_Book {
+import Haiku from "./Haiku.js";
+
+export default class Haiku_Book {
   /*
 		This object will contain a list of generated Haiku objects,
 		up to a set maximum.

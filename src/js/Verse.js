@@ -1,4 +1,6 @@
-class Verse {
+import Util from "./Util.js";
+
+export default class Verse {
   /*
 		Verse object will contain one randomly selected Template and enough
 		randomly selected Words to fill it.
@@ -29,7 +31,7 @@ class Verse {
     }
   }
 
-  try_template(syllables) {
+  try_template() {
     // Will try to create a sentence with the given number of syllables.
     // Returns a boolean status code (false for failed, true for succeeded).
 
@@ -91,7 +93,7 @@ class Verse {
 
   to_str() {
     let ret = [];
-    for (const i = 0; i < this.words.length; i++) {
+    for (let i = 0; i < this.words.length; i++) {
       ret.push(this.separators[i]);
       ret.push(this.words[i].to_str(this.word_caps[i]));
     }

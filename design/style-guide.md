@@ -25,8 +25,8 @@ Dark Sea: #54BAB9
 
 ## Project Milestones
 
-- Set up social sharing buttons
-- Centralize contact points (twitter, email)
-- Set up API backend
-- Set up analytics
-- Twitter bot (with queue)
+[x] Set up social sharing buttons
+[ ] Centralize contact points (twitter, email)
+[ ] Set up API backend
+[ ] Set up analytics
+[ ] Twitter bot (with queue)

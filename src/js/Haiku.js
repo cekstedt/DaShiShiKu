@@ -1,4 +1,6 @@
-class Haiku {
+import Verse from "./Verse.js";
+
+export default class Haiku {
   /*
 		Haiku object will contain three Verse objects.
 	*/

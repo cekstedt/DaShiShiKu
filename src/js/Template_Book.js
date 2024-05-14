@@ -1,4 +1,7 @@
-class Template_Book {
+import Template from "./Template.js";
+import Util from "./Util.js";
+
+export default class Template_Book {
   /*
 		This class takes a 2d list of templates (first row is titles)
 		and converts it to a template_book of Template objects.
@@ -8,7 +11,7 @@ class Template_Book {
 
   constructor(data) {
     for (const row of data.slice(1)) {
-      this.template_book.push(new Word(row, data[0]));
+      this.template_book.push(new Template(row, data[0]));
     }
   }
 

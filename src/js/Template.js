@@ -1,4 +1,4 @@
-class Template {
+export default class Template {
   /*
 		Template object will contain all column titles as attributes,
 		in addition to the following:
@@ -9,7 +9,7 @@ class Template {
 	*/
 
   constructor(data, titles) {
-    for (const i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       this[titles[i]] = data[i];
     }
     this.used = 0;
